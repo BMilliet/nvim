@@ -23,3 +23,8 @@ keymap('n', '<Leader>e', '<cmd>NERDTreeToggle<Enter>', opts)
 -- telescope search
 keymap('n', '<Leader>ff', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', '<Leader>lg', '<cmd>Telescope live_grep<CR>', opts)
+
+-- buffer swap
+keymap('n', '<Leader>j', ':bp<CR>', opts)
+keymap('n', '<Leader>k', ':bn<CR>', opts)
+
