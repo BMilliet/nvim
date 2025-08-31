@@ -1,1 +1,3 @@
 # nvim
+
+Minimal nvim config
