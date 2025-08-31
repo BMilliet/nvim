@@ -28,6 +28,8 @@ require("lazy").setup({
   lazy = false,
 },
 
+{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+
 {
 	"rose-pine/neovim",
 	name = "rose-pine",
