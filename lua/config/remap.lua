@@ -16,3 +16,7 @@ vim.api.nvim_set_keymap('n', '<leader>]', ':bnext<CR>', { noremap = true, silent
 vim.api.nvim_set_keymap('n', '<leader>p', ':b#<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '.', '5k<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ',', '5j<CR>', { noremap = true, silent = true })
+
+-- Telescope shortcuts --
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Telescope: Search Files' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = 'Telescope: Search Grep' })

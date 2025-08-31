@@ -1,2 +1,4 @@
+require("config.lazy")
 require("config.remap")
-print('✅ load configs')
+
+print('✅ loaded custom configs')
