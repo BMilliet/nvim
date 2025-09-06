@@ -20,7 +20,10 @@ vim.api.nvim_set_keymap('n', ',', '5j<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Telescope: Search Files' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = 'Telescope: Search Grep' })
 
--- 📦 buffer navigation --
+-- 🔎 Find and Replace
+vim.keymap.set('n', '<leader>fr', ':%s//g<Left><Left>', { desc = 'Find and Replace' })
+
+-- ☁️ buffer navigation --
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Buffer: Next' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Buffer: Previous' })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Buffer: Delete' })
