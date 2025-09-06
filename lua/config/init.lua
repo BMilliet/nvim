@@ -1,6 +1,7 @@
 require("config.lazy")
 require("config.remap")
 require("config.syntax")
+require("config.help")
 require("config.editor")
 require("config.colors")
 require("config.treesitter")
