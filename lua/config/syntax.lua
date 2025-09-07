@@ -17,3 +17,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
                 vim.lsp.buf.format({ async = false })
         end,
 })
+
+vim.diagnostic.config({
+        signs = false,    -- disables the left column signs
+        underline = true, -- keeps underlines
+        virtual_text = false,
+        virtual_lines = { current_line = true },
+})
