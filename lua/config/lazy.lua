@@ -11,10 +11,22 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+
+{
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+        ensure_installed = { "lua_ls" },
+    },
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
+    },
+},
 
   {
   'stevearc/oil.nvim',
@@ -30,11 +42,12 @@ require("lazy").setup({
 
 {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
 
+
 {
 	"rose-pine/neovim",
 	name = "rose-pine",
 	config = function()
 		vim.cmd("colorscheme rose-pine")
 	end
-}
+},
 })

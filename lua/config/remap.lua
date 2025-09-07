@@ -23,6 +23,11 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 -- 🔎 Find and Replace
 vim.keymap.set('n', '<leader>fr', ':%s//g<Left><Left>', { desc = 'Find and Replace' })
 
+-- 📝 Rename symbol under cursor (LSP)
+vim.keymap.set('n', '<leader>rn', function()
+	vim.lsp.buf.rename()
+end, { desc = 'LSP: Rename symbol under cursor' })
+
 -- ☁️ buffer navigation --
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Buffer: Next' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Buffer: Previous' })
