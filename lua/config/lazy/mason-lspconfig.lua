@@ -1,7 +1,7 @@
 return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-        ensure_installed = { "lua_ls", "yamlls", "gopls", "jsonls" },
+        ensure_installed = { "lua_ls", "yamlls", "gopls", "jsonls", "bashls" },
     },
     dependencies = {
         { "mason-org/mason.nvim", opts = {} },
