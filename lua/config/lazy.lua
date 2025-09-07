@@ -3,51 +3,51 @@
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    lazypath,
-  })
+        vim.fn.system({
+                "git",
+                "clone",
+                "--filter=blob:none",
+                "https://github.com/folke/lazy.nvim.git",
+                lazypath,
+        })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+        { "nvim-telescope/telescope.nvim",   dependencies = { "nvim-lua/plenary.nvim" } },
 
-{
-    "mason-org/mason-lspconfig.nvim",
-    opts = {
-        ensure_installed = { "lua_ls" },
-    },
-    dependencies = {
-        { "mason-org/mason.nvim", opts = {} },
-        "neovim/nvim-lspconfig",
-    },
-},
+        {
+                "mason-org/mason-lspconfig.nvim",
+                opts = {
+                        ensure_installed = { "lua_ls" },
+                },
+                dependencies = {
+                        { "mason-org/mason.nvim", opts = {} },
+                        "neovim/nvim-lspconfig",
+                },
+        },
 
-  {
-  'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {},
-  -- Optional dependencies
-  -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-  lazy = false,
-},
+        {
+                'stevearc/oil.nvim',
+                ---@module 'oil'
+                ---@type oil.SetupOpts
+                opts = {},
+                -- Optional dependencies
+                -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
+                -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+                -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+                lazy = false,
+        },
 
-{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+        { "nvim-treesitter/nvim-treesitter", branch = 'master',                         lazy = false, build = ":TSUpdate" },
 
 
-{
-	"rose-pine/neovim",
-	name = "rose-pine",
-	config = function()
-		vim.cmd("colorscheme rose-pine")
-	end
-},
+        {
+                "rose-pine/neovim",
+                name = "rose-pine",
+                config = function()
+                        vim.cmd("colorscheme rose-pine")
+                end
+        },
 })

@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 
 vim.opt.nu = true
@@ -27,4 +26,3 @@ vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
-

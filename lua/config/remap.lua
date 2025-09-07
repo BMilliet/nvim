@@ -25,7 +25,7 @@ vim.keymap.set('n', '<leader>fr', ':%s//g<Left><Left>', { desc = 'Find and Repla
 
 -- 📝 Rename symbol under cursor (LSP)
 vim.keymap.set('n', '<leader>rn', function()
-	vim.lsp.buf.rename()
+        vim.lsp.buf.rename()
 end, { desc = 'LSP: Rename symbol under cursor' })
 
 -- ☁️ buffer navigation --
@@ -36,3 +36,4 @@ vim.keymap.set('n', '<leader>bl', require('telescope.builtin').buffers, { desc =
 
 -- 🛢️ Oil shortcuts --
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
