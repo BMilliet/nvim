@@ -27,27 +27,36 @@ vim.api.nvim_create_user_command('Help', function()
                         maps = {
                                 { '<leader>sf', 'Telescope: Search Files' },
                                 { '<leader>sg', 'Telescope: Search Grep' },
-                                { '<leader>bl', 'Telescope: List Buffers' },
-                        },
-                },
-                {
-                        title = '📦 buffer navigation',
-                        maps = {
-                                { '<leader>bn', 'Buffer: Next' },
-                                { '<leader>bp', 'Buffer: Previous' },
-                                { '<leader>bd', 'Buffer: Delete' },
-                        },
-                },
-                {
-                        title = '🛢️ Oil shortcuts',
-                        maps = {
-                                { '<leader>-', 'Open parent directory (Oil)' },
                         },
                 },
                 {
                         title = '🔎 Find and Replace',
                         maps = {
-                                { '<leader>fr', 'Find and Replace (prompt)' },
+                                { '<leader>fr', 'Find and Replace' },
+                        },
+                },
+                {
+                        title = '☁️ buffer navigation',
+                        maps = {
+                                { '<leader>bn', 'Buffer: Next' },
+                                { '<leader>bp', 'Buffer: Previous' },
+                                { '<leader>bd', 'Buffer: Delete' },
+                                { '<leader>bl', 'Telescope: List Buffers' },
+                        },
+                },
+                {
+                        title = '🛢️ Oil shortcuts',
+                        maps = {
+                                { '-', 'Open parent directory (Oil)' },
+                        },
+                },
+                {
+                        title = '⚡️ LSP commands',
+                        maps = {
+                                { '<leader>rn', 'LSP: Rename symbol under cursor' },
+                                { '<leader>h',  'LSP: Hover documentation' },
+                                { '<leader>gd', 'LSP: Go to Definition' },
+                                { '<leader>gu', 'LSP: Show Usages (References)' },
                         },
                 },
         }
@@ -59,4 +68,3 @@ vim.api.nvim_create_user_command('Help', function()
                 end
         end
 end, { desc = 'Show help for remap.lua' })
-

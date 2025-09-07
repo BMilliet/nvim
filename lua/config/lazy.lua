@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-        { "nvim-telescope/telescope.nvim",   dependencies = { "nvim-lua/plenary.nvim" } },
+        { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
         {
                 "mason-org/mason-lspconfig.nvim",
@@ -29,6 +29,21 @@ require("lazy").setup({
         },
 
         {
+                -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+                -- used for completion, annotations and signatures of Neovim apis
+                'folke/lazydev.nvim',
+                ft = 'lua',
+                opts = {
+                        library = {
+                                -- Load luvit types when the `vim.uv` word is found
+                                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                        },
+                },
+        },
+
+        { 'j-hui/fidget.nvim',             opts = {} },
+
+        {
                 'stevearc/oil.nvim',
                 ---@module 'oil'
                 ---@type oil.SetupOpts
@@ -40,7 +55,7 @@ require("lazy").setup({
                 lazy = false,
         },
 
-        { "nvim-treesitter/nvim-treesitter", branch = 'master',                         lazy = false, build = ":TSUpdate" },
+        { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
 
 
         {
