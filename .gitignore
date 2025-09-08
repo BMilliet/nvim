@@ -1,0 +1,9 @@
+lazy-lock.json
+node_modules/
+dist/
+.env
+.DS_Store
+.vscode/
+.idea/
+*.log
+*.tmp
