@@ -1,5 +1,5 @@
 return {
-    'stevearc/oil.nvim',
-    opts = {},
-    lazy = false,
+        'stevearc/oil.nvim',
+        opts = {},
+        lazy = false,
 }

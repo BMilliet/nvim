@@ -23,6 +23,7 @@ local plugins = {
         require("config.lazy.oil"),
         require("config.lazy.treesitter"),
         require("config.lazy.rose-pine"),
+        require("config.lazy.fugitive"),
 }
 
 require("lazy").setup(plugins)
