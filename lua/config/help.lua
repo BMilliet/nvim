@@ -59,6 +59,15 @@ vim.api.nvim_create_user_command('Help', function()
                 { '<leader>gu', 'LSP: Show Usages (References)' },
             },
         },
+        {
+            title = '🚔 Fugitive (Git)',
+            maps = {
+                { '<leader>gs>', 'Git status' },
+                { '<leader>gv>', 'Git diff split' },
+                { '<leader>gb>', 'Git blame' },
+                { '<leader>gk>', 'Git commit' },
+            },
+        },
     }
     print('Remaps definidos em remap.lua:')
     for _, section in ipairs(sections) do
