@@ -35,18 +35,17 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- ⚡️ LSP commands --
 vim.keymap.set('n', '<leader>rn', function()
-        vim.lsp.buf.rename()
+    vim.lsp.buf.rename()
 end, { desc = 'LSP: Rename symbol under cursor' })
 
 vim.keymap.set('n', '<leader>h', function()
-        vim.lsp.buf.hover()
+    vim.lsp.buf.hover()
 end, { desc = 'LSP: Hover documentation' })
 
 vim.keymap.set('n', '<leader>gd', function()
-        vim.lsp.buf.definition()
+    vim.lsp.buf.definition()
 end, { desc = 'LSP: Go to Definition' })
 
 vim.keymap.set('n', '<leader>gu', function()
-        vim.lsp.buf.references()
+    vim.lsp.buf.references()
 end, { desc = 'LSP: Show Usages (References)' })
-
