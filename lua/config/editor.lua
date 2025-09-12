@@ -28,6 +28,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
+vim.opt.clipboard = "unnamedplus"
+
 -- 🌙 Lua --
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lua",
