@@ -27,7 +27,7 @@ vim.keymap.set('n', '<leader>fr', ':%s//g<Left><Left>', { desc = 'Find and Repla
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Buffer: Next' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Buffer: Previous' })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Buffer: Delete' })
-vim.keymap.set('n', '<leader>bl', require('telescope.builtin').buffers, { desc = 'Telescope: List Buffers' })
+vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, { desc = 'Telescope: List Buffers' })
 
 -- 🛢️ Oil shortcuts --
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
