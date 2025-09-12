@@ -68,6 +68,24 @@ vim.api.nvim_create_user_command('Help', function()
                 { '<leader>gk>', 'Git commit' },
             },
         },
+        {
+            title = '🌱 Gitsigns (Git changes)',
+            maps = {
+                { ']c', 'Next git change (hunk)' },
+                { '[c', 'Previous git change (hunk)' },
+                { '<leader>hs', 'Stage hunk (normal/visual)' },
+                { '<leader>hr', 'Reset hunk (normal/visual)' },
+                { '<leader>hS', 'Stage buffer' },
+                { '<leader>hu', 'Undo stage hunk' },
+                { '<leader>hR', 'Reset buffer' },
+                { '<leader>hp', 'Preview hunk' },
+                { '<leader>hb', 'Blame line' },
+                { '<leader>hd', 'Diff against index' },
+                { '<leader>hD', 'Diff against last commit' },
+                { '<leader>tb', 'Toggle blame line' },
+                { '<leader>tD', 'Toggle show deleted' },
+            },
+        },
     }
     print('Remaps definidos em remap.lua:')
     for _, section in ipairs(sections) do

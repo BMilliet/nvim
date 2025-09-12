@@ -24,6 +24,7 @@ local plugins = {
     require("config.lazy.treesitter"),
     require("config.lazy.rose-pine"),
     require("config.lazy.fugitive"),
+    require("config.lazy.gitsigns"),
 }
 
 require("lazy").setup(plugins)
