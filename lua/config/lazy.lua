@@ -21,10 +21,12 @@ local plugins = {
     require("config.lazy.lazydev"),
     require("config.lazy.fidget"),
     require("config.lazy.oil"),
+    require("config.lazy.oil-git"),
     require("config.lazy.treesitter"),
     require("config.lazy.rose-pine"),
     require("config.lazy.fugitive"),
     require("config.lazy.gitsigns"),
+    require("config.lazy.indent-lines"),
 }
 
 require("lazy").setup(plugins)
