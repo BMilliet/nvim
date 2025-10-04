@@ -26,6 +26,7 @@ local plugins = {
     require("config.lazy.fugitive"),
     require("config.lazy.gitsigns"),
     require("config.lazy.indent-lines"),
+    require("config.lsp.swift"),
 }
 
 require("lazy").setup(plugins)
