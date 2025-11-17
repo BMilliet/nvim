@@ -22,7 +22,7 @@ local plugins = {
     require("config.lazy.fidget"),
     require("config.lazy.oil"),
     require("config.lazy.treesitter"),
-    require("config.lazy.rose-pine"),
+    require("config.lazy.color-scheme"),
     require("config.lazy.fugitive"),
     require("config.lazy.gitsigns"),
     require("config.lazy.indent-lines"),
