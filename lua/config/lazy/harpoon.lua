@@ -20,6 +20,7 @@ return {
             )
         end, { desc = "Harpoon: add file" })
 
+
         -- 🧹 remover arquivo atual
         vim.keymap.set("n", "<leader>r", function()
             local file = vim.fn.expand("%:t") -- nome do arquivo (ex: main.go)
@@ -29,6 +30,15 @@ return {
                 vim.log.levels.INFO
             )
         end, { desc = "Harpoon: remove file" })
+
+
+        vim.keymap.set("n", "<leader>hc", function()
+            for i = #list.items, 1, -1 do
+                list:remove_at(i)
+            end
+
+            vim.notify("💣 Harpoon list cleared (current project)", vim.log.levels.WARN)
+        end)
 
 
         -- 📂 Menu rápido
