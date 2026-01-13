@@ -10,8 +10,9 @@ vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertical
 
 -- ⭐️ custom commands --
 vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertically' })
-vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })
+-- using harpoon
+-- vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>p', ':b#<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '.', '5k<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ',', '5j<CR>', { noremap = true, silent = true })

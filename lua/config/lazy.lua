@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    --- Lazy
     require("config.lazy.telescope"),
     require("config.lazy.mason-lspconfig"),
     require("config.lazy.nvim-cmp"),
@@ -26,6 +27,8 @@ local plugins = {
     require("config.lazy.fugitive"),
     require("config.lazy.gitsigns"),
     require("config.lazy.indent-lines"),
+    require("config.lazy.harpoon"),
+    --- LSP
     require("config.lsp.swift"),
 }
 
