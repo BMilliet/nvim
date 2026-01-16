@@ -10,6 +10,12 @@ vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertical
 
 -- ⭐️ custom commands --
 vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertically' })
+vim.keymap.set('n', '<leader>m', function()
+    local filename = vim.fn.expand('%')
+    vim.fn.setreg('+', filename)
+    vim.fn.setreg('"', filename)
+    print('Copiado: ' .. filename)
+end, { desc = 'Copy current filename to clipboard' })
 -- using harpoon
 -- vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })
