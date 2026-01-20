@@ -2,14 +2,13 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local lspconfig = require("lspconfig")
-
-            -- Swift LSP
-            lspconfig.sourcekit.setup({
+            vim.lsp.config.sourcekit = {
                 cmd = { "sourcekit-lsp" },
                 filetypes = { "swift", "objective-c" },
-                root_dir = lspconfig.util.root_pattern("Package.swift"),
-            })
+                root_markers = { "Package.swift" },
+            }
+
+            vim.lsp.enable("sourcekit")
         end,
     },
 }
