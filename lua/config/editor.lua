@@ -30,6 +30,10 @@ vim.opt.colorcolumn = "100"
 
 vim.opt.clipboard = "unnamedplus"
 
+-- Spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
 -- 🌙 Lua --
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lua",
