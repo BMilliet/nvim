@@ -28,6 +28,7 @@ local plugins = {
     require("config.lazy.gitsigns"),
     require("config.lazy.indent-lines"),
     require("config.lazy.harpoon"),
+    require("config.lazy.render-markdown"),
     --- Specifics
     require("config.lazy.flutter"),
     --- LSP
