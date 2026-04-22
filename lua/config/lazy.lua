@@ -27,7 +27,8 @@ local plugins = {
     require("config.lazy.gitsigns"),
     require("config.lazy.git-scrollbar"),
     require("config.lazy.indent-lines"),
-    require("config.lazy.harpoon")
+    require("config.lazy.harpoon"),
+    require("config.lazy.lore")
 }
 
 require("lazy").setup(plugins)
