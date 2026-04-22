@@ -72,6 +72,7 @@ vim.api.nvim_create_user_command("Help", function()
             icon = "🌱",
             items = {
                 { ":", "Blame", "Open blame for current file" },
+                { "n", "<leader>t", "Open changed file list" },
                 { ":", "Status", "Open changed file list" },
                 { ":", "GitStatusRefresh", "Refresh git signs and scrollbar" },
                 { ":", "GitStatusToggle", "Toggle git signs and scrollbar" },
