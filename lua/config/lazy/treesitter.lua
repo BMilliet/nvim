@@ -1,6 +1,8 @@
+local parsers = require("config.treesitter_parsers")
+
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'master',
+    branch = "main",
     lazy = false,
-    build = ":TSUpdate",
+    build = ":TSUpdate " .. table.concat(parsers, " "),
 }
