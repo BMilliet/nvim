@@ -5,10 +5,14 @@ return {
     "c",               -- C files.
     "dart",            -- Dart files.
     "go",              -- Go files.
+    "groovy",          -- Groovy files.
+    "java",            -- Java files.
     "javascript",      -- JavaScript files.
+    "kotlin",          -- Kotlin files.
     "lua",             -- Neovim config and Lua plugins.
     "markdown",        -- Markdown block parser.
     "markdown_inline", -- Inline Markdown parser used by markdown injections.
+    "python",          -- Python files.
     "query",           -- Tree-sitter query files (*.scm).
     "ruby",            -- Ruby files.
     "swift",           -- Swift files.
