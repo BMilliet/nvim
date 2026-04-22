@@ -19,5 +19,7 @@ return {
     "tsx",             -- TSX files.
     "typescript",      -- TypeScript files.
     "vim",             -- Vimscript files.
-    "vimdoc",          -- Neovim help documentation.
+    "json",
+    "yaml",
+    "vimdoc", -- Neovim help documentation.
 }
