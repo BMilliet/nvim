@@ -24,8 +24,7 @@ local plugins = {
     require("config.lazy.oil"),
     require("config.lazy.treesitter"),
     require("config.lazy.color-scheme"),
-    require("config.lazy.gitsigns"),
-    require("config.lazy.git-scrollbar"),
+    require("config.lazy.git-status"),
     require("config.lazy.indent-lines"),
     require("config.lazy.harpoon"),
     require("config.lazy.lore")
