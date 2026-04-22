@@ -7,6 +7,7 @@ return {
     },
     cmd = {
       "Blame",
+      "Status",
       "GitStatusRefresh",
       "GitStatusToggle",
     },

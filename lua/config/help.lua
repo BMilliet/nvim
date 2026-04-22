@@ -72,6 +72,7 @@ vim.api.nvim_create_user_command('Help', function()
             title = '🌱 Git Status',
             maps = {
                 { ':Blame', 'Open git blame for current file' },
+                { ':Status', 'Open changed file list' },
                 { ':GitStatusRefresh', 'Refresh git signs and scrollbar' },
                 { ':GitStatusToggle', 'Toggle git signs and scrollbar' },
             },
