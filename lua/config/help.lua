@@ -83,6 +83,8 @@ vim.api.nvim_create_user_command('Help', function()
                 { '<Right>', 'Lore: Older file commit' },
                 { '<Left>',  'Lore: Newer file commit' },
                 { 'q/:Loreq', 'Lore: Exit history mode' },
+                { ':Snapshot DD-MM-YYYY', 'Open file as it was on a date' },
+                { 'q/:Snapshotq', 'Snapshot: Exit snapshot mode' },
             },
         },
     }
