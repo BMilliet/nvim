@@ -7,7 +7,6 @@ local enabled = true
 local autocmds_created = false
 local attached_buffers = {}
 local floats = {}
-local bar_width = 2
 
 local chars = {
     add = "+",
@@ -28,6 +27,10 @@ local priorities = {
     change = 2,
     delete = 3,
 }
+
+local function marker_text(kind, line)
+    return ("%d%s"):format(line, chars[kind])
+end
 
 local function has_ui()
     return #vim.api.nvim_list_uis() > 0
@@ -81,19 +84,20 @@ local function hunk_range(hunk, line_count)
     return math.max(1, math.min(line_count, start)), math.max(1, math.min(line_count, finish))
 end
 
-local function build_rows(bufnr, height)
+local function build_markers(bufnr, height)
     local ok, gitsigns = pcall(require, "gitsigns")
     if not ok or type(gitsigns.get_hunks) ~= "function" then
-        return nil
+        return nil, nil
     end
 
     local hunks = gitsigns.get_hunks(bufnr)
     if not hunks or vim.tbl_isempty(hunks) then
-        return nil
+        return nil, nil
     end
 
     local line_count = math.max(vim.api.nvim_buf_line_count(bufnr), 1)
-    local rows = {}
+    local markers = {}
+    local marker_width = 1
 
     for _, hunk in ipairs(hunks) do
         local kind = hunk.type
@@ -101,20 +105,25 @@ local function build_rows(bufnr, height)
             local first, last = hunk_range(hunk, line_count)
             local first_row = scale_line(first, line_count, height)
             local last_row = scale_line(last, line_count, height)
+            local text = marker_text(kind, first)
+            marker_width = math.max(marker_width, #text)
 
             for row = first_row, last_row do
-                local existing = rows[row]
-                if not existing or priorities[kind] > priorities[existing] then
-                    rows[row] = kind
+                local existing = markers[row]
+                if not existing or priorities[kind] > priorities[existing.kind] then
+                    markers[row] = {
+                        kind = kind,
+                        text = text,
+                    }
                 end
             end
         end
     end
 
-    return next(rows) and rows or nil
+    return next(markers) and markers or nil, marker_width
 end
 
-local function ensure_float(win, height)
+local function ensure_float(win, height, bar_width)
     local state = floats[win]
     local width = vim.api.nvim_win_get_width(win)
 
@@ -128,7 +137,7 @@ local function ensure_float(win, height)
         if vim.api.nvim_win_get_height(state.win) ~= height then
             vim.api.nvim_win_set_height(state.win, height)
         end
-        if state.width ~= width then
+        if state.width ~= width or state.bar_width ~= bar_width then
             vim.api.nvim_win_set_config(state.win, {
                 relative = "win",
                 win = win,
@@ -139,6 +148,7 @@ local function ensure_float(win, height)
                 height = height,
             })
             state.width = width
+            state.bar_width = bar_width
         end
         return state
     end
@@ -165,7 +175,7 @@ local function ensure_float(win, height)
     vim.wo[float_win].winhighlight = "Normal:Normal"
     vim.wo[float_win].wrap = false
 
-    state = { buf = buf, win = float_win, width = width }
+    state = { buf = buf, win = float_win, width = width, bar_width = bar_width }
     floats[win] = state
     return state
 end
@@ -183,31 +193,33 @@ local function render_window(win)
     end
 
     local height = vim.api.nvim_win_get_height(win)
-    local rows = build_rows(bufnr, height)
-    if not rows then
+    local markers, marker_width = build_markers(bufnr, height)
+    if not markers then
         close_float(win)
         return
     end
 
-    local state = ensure_float(win, height)
+    local bar_width = marker_width + 1
+    local state = ensure_float(win, height, bar_width)
     local line_count = math.max(vim.api.nvim_buf_line_count(bufnr), 1)
     local cursor_line = vim.api.nvim_win_get_cursor(win)[1]
     local cursor_row = scale_line(cursor_line, line_count, height)
     local lines = {}
     for row = 1, height do
-        local git_char = rows[row] and chars[rows[row]] or " "
+        local marker = markers[row]
+        local git_text = marker and marker.text or ""
         local cursor_char = row == cursor_row and chars.cursor or " "
-        lines[row] = git_char .. cursor_char
+        lines[row] = git_text .. string.rep(" ", marker_width - #git_text) .. cursor_char
     end
 
     vim.bo[state.buf].modifiable = true
     vim.api.nvim_buf_set_lines(state.buf, 0, -1, false, lines)
     vim.api.nvim_buf_clear_namespace(state.buf, ns, 0, -1)
 
-    for row, kind in pairs(rows) do
-        vim.api.nvim_buf_add_highlight(state.buf, ns, highlights[kind], row - 1, 0, 1)
+    for row, marker in pairs(markers) do
+        vim.api.nvim_buf_add_highlight(state.buf, ns, highlights[marker.kind], row - 1, 0, #marker.text)
     end
-    vim.api.nvim_buf_add_highlight(state.buf, ns, highlights.cursor, cursor_row - 1, 1, 2)
+    vim.api.nvim_buf_add_highlight(state.buf, ns, highlights.cursor, cursor_row - 1, marker_width, marker_width + 1)
 
     vim.bo[state.buf].modifiable = false
 end
