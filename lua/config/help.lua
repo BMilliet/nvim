@@ -86,6 +86,15 @@ vim.api.nvim_create_user_command('Help', function()
                 { '<leader>tD', 'Toggle show deleted' },
             },
         },
+        {
+            title = '🧭 Lore (Git history)',
+            maps = {
+                { ':Lore',  'Open interactive file history' },
+                { '<Right>', 'Lore: Older file commit' },
+                { '<Left>',  'Lore: Newer file commit' },
+                { 'q/:Loreq', 'Lore: Exit history mode' },
+            },
+        },
     }
     print('Remaps definidos em remap.lua:')
     for _, section in ipairs(sections) do
