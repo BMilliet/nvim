@@ -11,10 +11,19 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     command = 'set filetype=groovy',
 })
 
+local format_on_save_disabled_filetypes = {
+    yaml = true,
+}
+
 -- Auto format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-        vim.lsp.buf.format({ async = false })
+    group = vim.api.nvim_create_augroup("config_format_on_save", { clear = true }),
+    callback = function(args)
+        if format_on_save_disabled_filetypes[vim.bo[args.buf].filetype] then
+            return
+        end
+
+        vim.lsp.buf.format({ bufnr = args.buf, async = false })
     end,
 })
 
