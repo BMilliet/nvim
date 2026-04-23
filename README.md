@@ -9,13 +9,13 @@ A minimal, modern, and modular Neovim configuration focused on productivity, cod
 - 🧩 Syntax highlighting and code navigation with [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - 🔭 Fuzzy finding and search with [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - 🛢️ File explorer with [oil.nvim](https://github.com/stevearc/oil.nvim)
-- 🎨 Theme with [rose-pine](https://github.com/rose-pine/neovim)
+- 🎨 Theme with [Catppuccin Mocha](https://github.com/catppuccin/nvim)
 - ⚡️ Custom keymaps for fast workflow (see below or use `:Help` in Neovim)
 
 ## Plugins
 
 - `lazy.nvim` - Plugin manager
-- `rose-pine` - Colorscheme
+- `catppuccin` - Colorscheme
 - `nvim-treesitter` - Syntax highlighting
 - `nvim-lspconfig` - LSP client
 - `mason.nvim` & `mason-lspconfig.nvim` - LSP/DAP/Linter installer
