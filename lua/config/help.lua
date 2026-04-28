@@ -68,9 +68,14 @@ vim.api.nvim_create_user_command("Help", function()
             },
         },
         {
-            title = "Git Status",
+            title = "Git",
             icon = "🌱",
             items = {
+                { ":", "Git", "Open Fugitive git summary" },
+                { ":", "G", "Run a Fugitive git command" },
+                { ":", "Gdiffsplit", "Diff current file with git index" },
+                { ":", "Gwrite", "Stage current file" },
+                { ":", "Gread", "Checkout current file into buffer" },
                 { ":", "Blame", "Open blame for current file" },
                 { "n", "<leader>t", "Open changed file list" },
                 { ":", "Status", "Open changed file list" },

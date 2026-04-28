@@ -21,6 +21,7 @@ A minimal, modern, and modular Neovim configuration focused on productivity, cod
 - `mason.nvim` & `mason-lspconfig.nvim` - LSP/DAP/Linter installer
 - `telescope.nvim` - Fuzzy finder
 - `oil.nvim` - File explorer
+- `vim-fugitive` - Git commands inside Neovim
 - `fidget.nvim` - LSP status
 - `lazydev.nvim` - Lua LSP for Neovim config
 
