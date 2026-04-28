@@ -73,6 +73,7 @@ vim.api.nvim_create_user_command("Help", function()
             items = {
                 { ":", "Blame", "Open blame for current file" },
                 { "n", "<leader>t", "Open changed file list" },
+                { ":", "Conflict", "Open git conflict resolver" },
                 { ":", "Status", "Open changed file list" },
                 { ":", "GitStatusRefresh", "Refresh git signs and scrollbar" },
                 { ":", "GitStatusToggle", "Toggle git signs and scrollbar" },
