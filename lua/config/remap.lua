@@ -10,7 +10,7 @@ vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertical
 
 -- ⭐️ custom commands --
 vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertically' })
-vim.keymap.set('n', '<leader>t', ':Status<CR>', { desc = 'Git Status: Open changed file list' })
+vim.keymap.set('n', '<leader>gs', ':Status<CR>', { desc = 'Git Status: Open changed file list' })
 
 vim.keymap.set('n', '<leader>m', function()
     local filename = vim.fn.expand('%')
