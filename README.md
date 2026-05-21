@@ -51,7 +51,7 @@ A minimal, modern, and modular Neovim configuration focused on productivity, cod
 ## LSP
 
 - Managed via `mason.nvim` and `mason-lspconfig.nvim`
-- Pre-configured for Lua (`lua_ls`) and Vimscript (`vimls`)
+- Pre-configured for Lua (`lua_ls`), YAML (`yamlls`), Go (`gopls`), JSON (`jsonls`) and Bash (`bashls`)
 - Easily extendable for other languages
 
 ## Installation
@@ -68,4 +68,4 @@ A minimal, modern, and modular Neovim configuration focused on productivity, cod
 - Edit `lua/config/remap.lua` for keymaps
 - Edit `lua/config/lazy.lua` to add/remove plugins
 - Edit `lua/config/treesitter.lua` for Treesitter settings
-- Edit `lua/config/mason.lua` for LSP server management
+- Edit `lua/config/lazy/mason-lspconfig.lua` for LSP server management

@@ -10,6 +10,7 @@ return {
     "javascript",      -- JavaScript files.
     "kotlin",          -- Kotlin files.
     "lua",             -- Neovim config and Lua plugins.
+    "make",            -- Makefiles.
     "markdown",        -- Markdown block parser.
     "markdown_inline", -- Inline Markdown parser used by markdown injections.
     "python",          -- Python files.
