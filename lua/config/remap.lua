@@ -12,12 +12,21 @@ vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertical
 vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>gs', ':Status<CR>', { desc = 'Git Status: Open changed file list' })
 
-vim.keymap.set('n', '<leader>m', function()
-    local filename = vim.fn.expand('%')
-    vim.fn.setreg('+', filename)
-    vim.fn.setreg('"', filename)
-    print('Copiado: ' .. filename)
-end, { desc = 'Copy current filename to clipboard' })
+local function copy_current_path()
+    local path = vim.api.nvim_buf_get_name(0)
+
+    if path == '' then
+        vim.notify('No file currently', vim.log.levels.WARN)
+        return
+    end
+
+    vim.fn.setreg('+', path)
+    vim.fn.setreg('"', path)
+    vim.notify('Copied: ' .. path)
+end
+
+vim.api.nvim_create_user_command('Path', copy_current_path, { desc = 'Copy current file path to clipboard' })
+vim.keymap.set('n', '<leader>m', copy_current_path, { desc = 'Copy current file path to clipboard' })
 -- using harpoon
 -- vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })

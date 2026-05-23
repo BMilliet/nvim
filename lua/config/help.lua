@@ -21,6 +21,7 @@ vim.api.nvim_create_user_command("Help", function()
                 { "n", "<leader><leader>", "Telescope: list buffers" },
                 { "n", "-", "Oil: open parent directory" },
                 { "n", "<leader>m", "Copy current file path" },
+                { ":", "Path", "Copy current file path" },
             },
         },
         {
