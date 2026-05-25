@@ -4,6 +4,7 @@ return {
     "bash",            -- Markdown fenced code blocks tagged as sh/shell/bash.
     "c",               -- C files.
     "dart",            -- Dart files.
+    "fish",            -- Fish shell scripts.
     "go",              -- Go files.
     "groovy",          -- Groovy files.
     "java",            -- Java files.
