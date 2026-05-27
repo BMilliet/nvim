@@ -28,7 +28,8 @@ local plugins = {
     require("config.lazy.git-status"),
     require("config.lazy.indent-lines"),
     require("config.lazy.harpoon"),
-    require("config.lazy.lore")
+    require("config.lazy.lore"),
+    require("config.lazy.flash")
 }
 
 require("lazy").setup(plugins)
