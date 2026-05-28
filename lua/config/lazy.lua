@@ -29,7 +29,8 @@ local plugins = {
     require("config.lazy.indent-lines"),
     require("config.lazy.harpoon"),
     require("config.lazy.lore"),
-    require("config.lazy.flash")
+    require("config.lazy.flash"),
+    require("config.lazy.buffer-menu")
 }
 
 require("lazy").setup(plugins)
