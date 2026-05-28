@@ -45,17 +45,48 @@ return {
             },
         })
 
+        local cmdline_mapping = cmp.mapping.preset.cmdline({
+            ['<Down>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end, { "c" }),
+            ['<Up>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    fallback()
+                end
+            end, { "c" }),
+            ['<Right>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.close()
+                else
+                    fallback()
+                end
+            end, { "c" }),
+            ['<CR>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+                else
+                    fallback()
+                end
+            end, { "c" }),
+        })
+
         -- Cmdline
         cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline(),
+            mapping = cmdline_mapping,
             sources = {
                 { name = 'path' },
-                { name = 'cmdline' },
+                { name = 'cmdline', keyword_length = 2 },
             }
         })
 
         cmp.setup.cmdline('/', {
-            mapping = cmp.mapping.preset.cmdline(),
+            mapping = cmdline_mapping,
             sources = {
                 { name = 'buffer' }
             }
