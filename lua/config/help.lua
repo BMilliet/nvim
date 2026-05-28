@@ -63,10 +63,11 @@ vim.api.nvim_create_user_command("Help", function()
             title = "LSP",
             icon = "⚡",
             items = {
-                { "n", "<leader>rn", "Rename symbol under cursor" },
-                { "n", "<leader>h",  "Show hover documentation" },
-                { "n", "<leader>gd", "Go to definition" },
-                { "n", "<leader>gu", "Show references" },
+                { "n", "<leader>rn",   "Rename symbol under cursor" },
+                { "n", "<leader>h",    "Show hover documentation" },
+                { "n", "<leader>gd",   "Go to definition" },
+                { "n", "<leader>gu",   "Show references" },
+                { "n", ":SwiftFormat", "Toggle swift auto format on/off" },
             },
         },
         {
