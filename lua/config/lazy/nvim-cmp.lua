@@ -62,17 +62,16 @@ return {
             end, { "c" }),
             ['<Right>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
-                    cmp.close()
+                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
                 else
                     fallback()
                 end
             end, { "c" }),
             ['<CR>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-                else
-                    fallback()
+                    cmp.close()
                 end
+                fallback()
             end, { "c" }),
         })
 
