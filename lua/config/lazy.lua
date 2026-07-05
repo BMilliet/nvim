@@ -30,7 +30,8 @@ local plugins = {
     require("config.lazy.harpoon"),
     require("config.lazy.lore"),
     require("config.lazy.flash"),
-    require("config.lazy.buffer-menu")
+    require("config.lazy.buffer-menu"),
+    require("config.lazy.twilight")
 }
 
 require("lazy").setup(plugins)
