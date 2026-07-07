@@ -68,6 +68,55 @@ vim.keymap.set('n', '<leader>gd', function()
     vim.lsp.buf.definition()
 end, { desc = 'LSP: Go to Definition' })
 
+vim.keymap.set('n', '<leader>gi', function()
+    vim.lsp.buf.implementation()
+end, { desc = 'LSP: Go to Implementation' })
+
+vim.keymap.set('n', '<leader>gt', function()
+    vim.lsp.buf.type_definition()
+end, { desc = 'LSP: Go to Type Definition' })
+
 vim.keymap.set('n', '<leader>gu', function()
     vim.lsp.buf.references()
 end, { desc = 'LSP: Show Usages (References)' })
+
+vim.keymap.set('n', '<leader>ca', function()
+    vim.lsp.buf.code_action()
+end, { desc = 'LSP: Code Action' })
+
+vim.keymap.set('n', '<leader>co', function()
+    vim.lsp.buf.code_action({
+        apply = true,
+        context = {
+            only = { 'source.organizeImports' },
+            diagnostics = {},
+        },
+    })
+end, { desc = 'LSP: Organize Imports' })
+
+vim.keymap.set('n', '<leader>cf', function()
+    local ok, conform = pcall(require, 'conform')
+
+    if ok then
+        conform.format({ bufnr = 0, async = true, lsp_format = 'fallback' })
+        return
+    end
+
+    vim.lsp.buf.format({ async = true })
+end, { desc = 'LSP: Format Buffer' })
+
+vim.keymap.set('n', '<leader>dl', function()
+    vim.diagnostic.open_float()
+end, { desc = 'Diagnostic: Show Line' })
+
+vim.keymap.set('n', '<leader>ds', function()
+    vim.lsp.buf.document_symbol()
+end, { desc = 'LSP: Document Symbols' })
+
+vim.keymap.set('n', '[d', function()
+    vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = 'Diagnostic: Previous' })
+
+vim.keymap.set('n', ']d', function()
+    vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = 'Diagnostic: Next' })

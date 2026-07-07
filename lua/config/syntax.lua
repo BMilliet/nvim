@@ -15,6 +15,20 @@ local format_on_save_disabled_filetypes = {
     yaml = true,
 }
 
+local conform_filetypes = {
+    css = true,
+    html = true,
+    javascript = true,
+    javascriptreact = true,
+    json = true,
+    jsonc = true,
+    markdown = true,
+    sass = true,
+    scss = true,
+    typescript = true,
+    typescriptreact = true,
+}
+
 if vim.g.swift_format_on_save == nil then
     vim.g.swift_format_on_save = false
 end
@@ -65,6 +79,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
         if format_on_save_disabled_filetypes[filetype] then
             return
+        end
+
+        if conform_filetypes[filetype] then
+            local ok, conform = pcall(require, "conform")
+
+            if ok then
+                conform.format({ bufnr = args.buf, async = false, lsp_format = "fallback" })
+                return
+            end
         end
 
         vim.lsp.buf.format({ bufnr = args.buf, async = false })

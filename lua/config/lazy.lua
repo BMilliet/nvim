@@ -18,7 +18,9 @@ local plugins = {
     --- Lazy
     require("config.lazy.telescope"),
     require("config.lazy.mason-lspconfig"),
+    require("config.lazy.mason-tool-installer"),
     require("config.lazy.nvim-cmp"),
+    require("config.lazy.conform"),
     require("config.lazy.lazydev"),
     require("config.lazy.fidget"),
     require("config.lazy.oil"),
