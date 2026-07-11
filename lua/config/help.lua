@@ -34,6 +34,15 @@ vim.api.nvim_create_user_command("Help", function()
             },
         },
         {
+            title = "Terminal",
+            icon = "",
+            items = {
+                { "n", "<leader>t", "Toggle terminal split" },
+                { "t", "<leader>t", "Close terminal split" },
+                { "t", "<Esc>",      "Leave terminal mode" },
+            },
+        },
+        {
             title = "Buffers and Movement",
             icon = "☁️",
             items = {
@@ -89,7 +98,7 @@ vim.api.nvim_create_user_command("Help", function()
                 { ":", "Gwrite",           "Stage current file" },
                 { ":", "Gread",            "Checkout current file into buffer" },
                 { ":", "Blame",            "Open blame for current file" },
-                { "n", "<leader>t",        "Open changed file list" },
+                { "n", "<leader>gs",       "Open changed file list" },
                 { ":", "Status",           "Open changed file list" },
                 { ":", "GitStatusRefresh", "Refresh git signs and scrollbar" },
                 { ":", "GitStatusToggle",  "Toggle git signs and scrollbar" },

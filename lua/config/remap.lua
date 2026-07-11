@@ -12,6 +12,12 @@ vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertical
 vim.keymap.set('n', '<leader>vp', ':vsplit<CR>', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>gs', ':Status<CR>', { desc = 'Git Status: Open changed file list' })
 
+local terminal = require('config.terminal')
+
+vim.keymap.set('n', '<leader>t', terminal.toggle, { desc = 'Terminal: Toggle terminal split' })
+vim.keymap.set('t', '<leader>t', terminal.toggle, { desc = 'Terminal: Toggle terminal split' })
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Terminal: Leave terminal mode' })
+
 local function copy_current_path()
     local path = vim.api.nvim_buf_get_name(0)
 
